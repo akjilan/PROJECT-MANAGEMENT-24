@@ -9,11 +9,16 @@ const projectRoute = require('./routes/projectRoutes');
 const uploadRoute = require('./routes/uploadRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5003;
 
 connectDB();                                //Connect to the database
 app.use(express.json({ extended: true, limit: '50mb' }));  //Init body-parser middleware
 app.use(cors());
+
+app.get('/',(req,res)=>{
+    res.send('hi!!!!!!!!!')
+})
+
 
 //Define Routes
 app.use('/api/user', userRoute);
